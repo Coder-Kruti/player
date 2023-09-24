@@ -13,5 +13,4 @@ public class PlayerResponse {
     List<Player> playerList;
 
     List<String> errorList;
-
 }

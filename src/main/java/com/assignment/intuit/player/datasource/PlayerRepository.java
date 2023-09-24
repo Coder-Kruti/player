@@ -85,7 +85,7 @@ public class PlayerRepository {
         return output;
     }
 
-    public PlayerResponse getPlayerPageWise (int page, int pageSize){
+    public PlayerResponse getPlayerPageWise(int page, int pageSize) {
         PlayerResponse playerResponse = new PlayerResponse();
         List<Player> pageOfPlayers = null;
         try {
@@ -100,7 +100,7 @@ public class PlayerRepository {
             int endIndex = Math.min(startIndex + pageSize, players.size());
 
             // Slice the list to get the players for the current page
-            pageOfPlayers= players.subList(startIndex, endIndex);
+            pageOfPlayers = players.subList(startIndex, endIndex);
 
             // Close the CSV reader
             reader.close();

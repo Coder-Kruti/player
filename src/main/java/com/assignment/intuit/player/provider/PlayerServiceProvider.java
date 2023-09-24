@@ -22,11 +22,13 @@ public class PlayerServiceProvider {
         PlayerResponse output = playerRepository.getPlayers();
         return output;
     }
+
     public Player getPlayerByID(String playerID) {
         Player player = playerRepository.getPlayerByID(playerID);
         return player;
     }
-    public PlayerResponse getPlayerPageWise (int page, int pageSize){
+
+    public PlayerResponse getPlayerPageWise(int page, int pageSize) {
         logger.info("Processing Player records");
         PlayerResponse output = playerRepository.getPlayerPageWise(page, pageSize);
         return output;
