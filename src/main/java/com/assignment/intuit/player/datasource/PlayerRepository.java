@@ -98,9 +98,10 @@ public class PlayerRepository {
             // Calculate the starting index and ending index for the current page
             int startIndex = (page - 1) * pageSize;
             int endIndex = Math.min(startIndex + pageSize, players.size());
-
-            // Slice the list to get the players for the current page
-            pageOfPlayers = players.subList(startIndex, endIndex);
+            if(startIndex <= players.size()){
+                // Slice the list to get the players for the current page
+                pageOfPlayers = players.subList(startIndex, endIndex);
+            }
 
             // Close the CSV reader
             reader.close();

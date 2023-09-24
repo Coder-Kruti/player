@@ -1,5 +1,6 @@
 package com.assignment.intuit.player.entity;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.opencsv.bean.CsvBindByName;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -7,6 +8,7 @@ import lombok.Data;
 
 @Data
 @Entity
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Player {
     @CsvBindByName(column = "playerID")
     @Id
