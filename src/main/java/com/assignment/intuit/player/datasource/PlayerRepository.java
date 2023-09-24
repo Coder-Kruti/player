@@ -27,6 +27,11 @@ public class PlayerRepository {
     private final Logger logger = LoggerFactory.getLogger(PlayerRepository.class);
 
     //Ideally the call here has to go to database and fetch the records. Since we are using CSV file we are reading the data here
+
+    /**
+     * Returns all the players in the given CSV file
+     * @return List of Players information.
+     */
     public PlayerResponse getPlayers() {
         PlayerResponse output = new PlayerResponse();
         List<Player> players;
@@ -56,6 +61,11 @@ public class PlayerRepository {
         return output;
     }
 
+    /**
+     * Fetch the return object based on given playerID
+     * @param playerID : For which Player information to be fetched
+     * @return Player information from CSV
+     */
     public Player getPlayerByID(String playerID) {
         Player output = null;
         try {
@@ -85,6 +95,12 @@ public class PlayerRepository {
         return output;
     }
 
+    /**
+     * Paginate the data and fetch the data as per given page number and size
+     * @param page Page Number for which the data needs to be fetched.
+     * @param pageSize Page size to split the data in CSV.
+     * @return List of players and errors if any.
+     */
     public PlayerResponse getPlayerPageWise(int page, int pageSize) {
         PlayerResponse playerResponse = new PlayerResponse();
         List<Player> pageOfPlayers = null;

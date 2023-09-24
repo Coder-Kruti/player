@@ -22,6 +22,12 @@ public class PlayerController implements PlayerResource {
         this.playerServiceProvider = playerServiceProvider;
     }
 
+    /**
+     *
+     * @return 200 Ok  All the player information .
+     *         404 Not Found if CSV file is empty.
+     *         400 Bad request, if the given csv has some issues.
+     */
     @Override
     public ResponseEntity<PlayerResponse> getPlayers() {
         PlayerResponse response = playerServiceProvider.getPlayers();
@@ -38,6 +44,12 @@ public class PlayerController implements PlayerResource {
 
     }
 
+    /**
+     *
+     * @param playerID -  For which Player information to be fetched. It is read as path parameter.
+     * @return 200 Ok along with player information.
+     *         404 Not Found if teh data are not found.
+     */
     @Override
     public ResponseEntity<Player> getPlayerByID(String playerID) {
         Player response = playerServiceProvider.getPlayerByID(playerID);
@@ -51,14 +63,22 @@ public class PlayerController implements PlayerResource {
 
     }
 
+    /**
+     *
+     * @param page Page Number for which the data needs to be fetched. It is read as path parameter.
+     * @param pageSize Page size to split the data in CSV.  It is read as path parameter.
+     * @return 200 Ok along with player information.
+     *         404 Not Found if teh data are not found.
+     */
+
     @Override
     public ResponseEntity<PlayerResponse> getPlayerPageWise(int page, int pageSize) {
         PlayerResponse response = playerServiceProvider.getPlayerPageWise(page, pageSize);
         if (response.getPlayerList() != null) {
-            logger.info("We found the requested Player data.");
+            logger.info("We found the players data in the given range.");
             return new ResponseEntity<>(response, HttpStatus.OK);
         } else {
-            logger.info("We do not have the requested Player data.");
+            logger.info("We do not have the players data in the given range..");
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 

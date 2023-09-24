@@ -17,19 +17,35 @@ public class PlayerServiceProvider {
 
     private final Logger logger = LoggerFactory.getLogger(PlayerServiceProvider.class);
 
+    /**
+     * Get all player data
+     * @return All Players data.
+     */
     public PlayerResponse getPlayers() {
-        logger.info("Processing Player records");
+        logger.info("Fetching Player records");
         PlayerResponse output = playerRepository.getPlayers();
         return output;
     }
 
+    /**
+     *
+     * @param playerID Player ID for which data needs to be fetched.
+     * @return Player information
+     */
     public Player getPlayerByID(String playerID) {
+        logger.info("Fetching  Player record for palyer {}", playerID);
         Player player = playerRepository.getPlayerByID(playerID);
         return player;
     }
 
+    /**
+     *
+     * @param page Page number
+     * @param pageSize Split the data into pages using page size
+     * @return All the player information for that range
+     */
     public PlayerResponse getPlayerPageWise(int page, int pageSize) {
-        logger.info("Processing Player records");
+        logger.info("Fetching Player records for the given range");
         PlayerResponse output = playerRepository.getPlayerPageWise(page, pageSize);
         return output;
     }
