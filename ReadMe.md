@@ -240,7 +240,7 @@ Sample Response when page size is 3 and page number is 5:
   "errorList": null
 }
 ```
-
+4. JUnit tests have been created in a sample class to demonstrate unit testing and mocking capabilities.
 # Scope for further enhancement: 
 
 1. The Birth Date and Death Date in the JSON response can be enhanced for readability if required by the specification.
