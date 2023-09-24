@@ -2,7 +2,7 @@
 
 The microservice is developed based on given requirements.
 
-## Assignment:
+## Assignment Requirements:
 #### Create a microservice which serves the contents of player.csv through REST API.
 
 
